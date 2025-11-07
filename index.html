@@ -6,169 +6,154 @@
   <meta name="referrer" content="origin" />
   <title>Rahmstunden</title>
   <style>
-    :root {
-      --bg: #0f1115;
-      --panel: #151923;
-      --text: #cfd3dc;
-      --muted: #969fb0;
-      --border: #20283a;
-      --accent: #4f8cff;
-      --accent-hover: #3f79e6;
-      --input-bg: #0e1422;
-    }
-    html, body { height: auto; min-height: 100%; }
-    body {
-      font-family: system-ui, Arial, sans-serif;
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      min-height: 100dvh;
-      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-    }
-    .container { width: 100%; max-width: 520px; padding: 20px 16px 28px; box-sizing: border-box; background: var(--panel); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.35); text-align: center; }
-    fieldset { margin: 16px 0; padding: 12px; border: 1px solid var(--border); border-radius: 10px; }
-    .row { display: grid; grid-template-columns: 1fr; gap: 10px; align-items: center; margin: 10px 0; justify-items: center; }
-    .row label { font-weight: 600; }
-    .error { color: #ff6b6b; font-size: 0.95em; min-height: 1.2em; }
-    button { padding: 12px 16px; font-size: 1rem; background: var(--accent); color: #fff; border: none; border-radius: 8px; cursor: pointer; }
-    button:hover { background: var(--accent-hover); }
-    input[type="text"], input[type="tel"], input[type="email"] { padding: 8px 10px; font-size: 1rem; width: 100%; max-width: 100%; box-sizing: border-box; background: var(--input-bg); color: #bfc6d4; border: 1px solid var(--border); border-radius: 8px; text-align: center; letter-spacing: 0; appearance: none; -webkit-appearance: none; }
-    input::placeholder { text-align: center; color: var(--muted); }
-    input:focus::placeholder { color: transparent; }
-    .radios { display: flex; gap: 14px; align-items: center; justify-content: center; flex-wrap: wrap; }
-    .radios label { display: inline-flex; gap: 6px; align-items: center; }
-    .row.contact-row { grid-template-columns: 1fr; justify-items: stretch; align-items: stretch; text-align: left; }
-    .row.contact-row label { justify-self: start; }
-    .ds-hint { margin-top: 18px; color: var(--muted); font-size: 0.85rem; line-height: 1.4; }
-    .tabs { display: flex; gap: 12px; justify-content: center; margin: 8px 0 4px; flex-wrap: wrap; }
-    .tab-btn { background: transparent; color: var(--muted); border: 1px solid var(--border); border-radius: 24px; padding: 8px 18px; font-size: 0.95rem; cursor: pointer; transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
-    .tab-btn:hover { border-color: var(--accent); color: var(--text); }
-    .tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-    .tab-panel { display: none; }
-    .tab-panel.active { display: block; }
-    .tab-panel fieldset { margin-top: 16px; }
-    .hint-text { color: var(--muted); font-size: 0.9rem; text-align: left; margin: 0 auto 8px; max-width: 360px; }
-    .inline-controls { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; }
-    .osm-attrib { color: var(--muted); font-size: 0.8rem; margin-top: 8px; text-align: left; }
-    @media (min-width: 480px) { .row { grid-template-columns: 140px 1fr; } .row label { justify-self: end; } }
-    @media (min-width: 480px) { .row.contact-row { grid-template-columns: 1fr; } }
+    :root { --bg:#0f1115; --panel:#151923; --text:#cfd3dc; --muted:#969fb0; --border:#20283a; --accent:#4f8cff; --accent-hover:#3f79e6; --input-bg:#0e1422; }
+    html, body { height:auto; min-height:100%; }
+    body { font-family:system-ui, Arial, sans-serif; margin:0; background:var(--bg); color:var(--text); display:flex; align-items:center; justify-content:center; min-height:100vh; min-height:100dvh; padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+    .container { width:100%; max-width:520px; padding:20px 16px 28px; box-sizing:border-box; background:var(--panel); border:1px solid var(--border); border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.35); text-align:center; }
+    fieldset { margin:16px 0; padding:12px; border:1px solid var(--border); border-radius:10px; }
+    .row { display:grid; grid-template-columns:1fr; gap:10px; align-items:center; margin:10px 0; justify-items:center; }
+    .row label { font-weight:600; }
+    .error { color:#ff6b6b; font-size:0.95em; min-height:1.2em; }
+    button { padding:12px 16px; font-size:1rem; background:var(--accent); color:#fff; border:none; border-radius:8px; cursor:pointer; }
+    button:hover { background:var(--accent-hover); }
+    input[type="text"], input[type="tel"], input[type="email"] { padding:8px 10px; font-size:1rem; width:100%; max-width:100%; box-sizing:border-box; background:var(--input-bg); color:#bfc6d4; border:1px solid var(--border); border-radius:8px; text-align:center; letter-spacing:0; appearance:none; -webkit-appearance:none; }
+    input::placeholder { text-align:center; color:var(--muted); }
+    input:focus::placeholder { color:transparent; }
+    .radios { display:flex; gap:14px; align-items:center; justify-content:center; flex-wrap:wrap; }
+    .radios label { display:inline-flex; gap:6px; align-items:center; }
+    .row.contact-row { grid-template-columns:1fr; justify-items:stretch; align-items:stretch; text-align:left; }
+    .row.contact-row label { justify-self:start; }
+    .ds-hint { margin-top:18px; color:var(--muted); font-size:0.85rem; line-height:1.4; }
+    .tabs { display:flex; gap:12px; justify-content:center; margin:8px 0 4px; flex-wrap:wrap; }
+    .tab-btn { background:transparent; color:var(--muted); border:1px solid var(--border); border-radius:24px; padding:8px 18px; font-size:0.95rem; cursor:pointer; transition:background .2s ease, color .2s ease, border-color .2s ease; }
+    .tab-btn:hover { border-color:var(--accent); color:var(--text); }
+    .tab-btn.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+    .tab-panel { display:none; }
+    .tab-panel.active { display:block; }
+    .tab-panel fieldset { margin-top:16px; }
+    .hint-text { color:var(--muted); font-size:.9rem; text-align:left; margin:0 auto 8px; max-width:360px; }
+    .inline-controls { display:grid; grid-template-columns:1fr auto; gap:8px; align-items:center; }
+    .osm-attrib { color:var(--muted); font-size:.8rem; margin-top:8px; text-align:left; }
+    @media (min-width:480px){ .row{grid-template-columns:140px 1fr} .row label{justify-self:end} }
+    @media (min-width:480px){ .row.contact-row{grid-template-columns:1fr} }
   </style>
   <script>
-    // --- Zeit-Parsing/Formatierung ---
-    function parseTimeToMinutes(value) {
-      if (!value) return NaN;
-      const v = String(value).trim();
-      if (v === "") return NaN;
-      let h, m;
-      if (v.includes(":")) {
-        const [hs, ms] = v.split(":");
-        if (hs === undefined || ms === undefined) return NaN;
-        h = parseInt(hs, 10);
-        m = parseInt(ms, 10);
-      } else {
-        const digits = v.replace(/\D/g, "");
-        if (digits.length === 0) return NaN;
-        if (digits.length <= 2) { h = parseInt(digits, 10); m = 0; }
-        else { const mins = digits.slice(-2); const hrs = digits.slice(0, -2); h = parseInt(hrs, 10); m = parseInt(mins, 10); }
-      }
-      if (Number.isNaN(h) || Number.isNaN(m)) return NaN;
-      if (h < 0 || m < 0 || m > 59) return NaN;
-      return h * 60 + m;
-    }
-    function minutesToHHMM(totalMinutes) { const mins = ((totalMinutes % (24 * 60)) + (24 * 60)) % (24 * 60); const h = Math.floor(mins / 60); const m = mins % 60; const z = (n) => String(n).padStart(2, "0"); return `${z(h)}:${z(m)}`; }
-    function formatFieldToHHMM(input) { const mins = parseTimeToMinutes(input.value); if (!Number.isNaN(mins)) input.value = minutesToHHMM(mins); }
-    function onBlurFormat(ev) { formatFieldToHHMM(ev.target); clearError(); save(ev.target.id, ev.target.value); }
-    function onEnterNext(ev) { if (ev.key !== 'Enter') return; ev.preventDefault(); const order = ['mon_start','tue_start','wed_start','thu_start','fri_start','sat_start','name_input','email_input']; const idx = order.indexOf(ev.target.id); formatFieldToHHMM(ev.target); if (idx >= 0 && idx < order.length - 1) document.getElementById(order[idx + 1])?.focus(); else document.getElementById('submit_btn')?.click(); }
-    function onTimeInput(ev) { const el = ev.target; const digits = String(el.value).replace(/\D/g, ''); if (digits.length === 3 || digits.length === 4) { const mins = parseTimeToMinutes(digits); if (!Number.isNaN(mins)) { el.value = minutesToHHMM(mins); save(el.id, el.value); const order = ['mon_start','tue_start','wed_start','thu_start','fri_start','sat_start','name_input','email_input']; const idx = order.indexOf(el.id); if (idx >= 0 && idx < order.length - 1) document.getElementById(order[idx + 1])?.focus(); else document.getElementById('submit_btn')?.focus(); } } }
-    function getSelectedHours() { const r = document.querySelector('input[name="rahmenstunden"]:checked'); return r ? parseInt(r.value, 10) : NaN; }
-    function showError(msg) { const el = document.getElementById('error'); el.textContent = msg; }
-    function clearError() { showError(''); }
-    // Lokale Speicherung
-    function save(key, value) { try { window.localStorage.setItem(key, value ?? ''); } catch {} }
-    function load(key) { try { const val = window.localStorage.getItem(key); return val === null ? null : val; } catch { return null; } }
-    function formatRecipientName(email) { if (!email) return 'Empfänger'; const local = email.split('@')[0] || ''; if (!local) return 'Empfänger'; return local.split(/[.\-_]+/).filter(Boolean).map(part => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase()).join(' ').trim() || 'Empfänger'; }
-    function formatTime(date) { try { return date.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' }); } catch { const h = String(date.getHours()).padStart(2, '0'); const m = String(date.getMinutes()).padStart(2, '0'); return `${h}:${m}`; } }
-    // Kein Nominatim, keine Suche
-    let activeTab = 'availability';
-    function setActiveTab(tab, { force = false } = {}) {
-      if (!tab) return; if (!force && tab === activeTab) return; activeTab = tab;
-      const panels = { availability: document.getElementById('tab-availability'), break: document.getElementById('tab-break') };
-      Object.entries(panels).forEach(([key, panel]) => { if (!panel) return; const isActive = key === tab; panel.classList.toggle('active', isActive); if (isActive) panel.removeAttribute('aria-hidden'); else panel.setAttribute('aria-hidden', 'true'); });
-      document.querySelectorAll('.tab-btn').forEach((btn) => { const isActive = btn.dataset.tab === tab; btn.classList.toggle('active', isActive); btn.setAttribute('aria-selected', isActive ? 'true' : 'false'); });
-      clearError(); const submitBtn = document.getElementById('submit_btn'); if (submitBtn) submitBtn.textContent = tab === 'availability' ? 'E-Mail erstellen' : 'Pause melden'; if (typeof save === 'function') save('active_tab', tab);
-    }
-    // Nächste Woche (Mo-Sa)
-    function startOfNextWeekMonday(today = new Date()) { const d = new Date(today.getFullYear(), today.getMonth(), today.getDate()); const dow = d.getDay(); const delta = (8 - dow) % 7 || 7; d.setDate(d.getDate() + delta); return d; }
-    function addDays(date, days) { const d = new Date(date); d.setDate(d.getDate() + days); return d; }
-    function fmtDM(d) { const z=(n)=>String(n).padStart(2,'0'); return `${z(d.getDate())}.${z(d.getMonth()+1)}`; }
-    function fmtDMY(d) { const z=(n)=>String(n).padStart(2,'0'); return `${z(d.getDate())}.${z(d.getMonth()+1)}.${d.getFullYear()}`; }
-    function composeEmail() {
+    function parseTimeToMinutes(value){ if(!value) return NaN; const v=String(value).trim(); if(v==="") return NaN; let h,m; if(v.includes(":")){ const[hs,ms]=v.split(":"); if(hs===undefined||ms===undefined) return NaN; h=parseInt(hs,10); m=parseInt(ms,10);} else { const digits=v.replace(/\D/g,""); if(digits.length===0) return NaN; if(digits.length<=2){ h=parseInt(digits,10); m=0;} else { const mins=digits.slice(-2); const hrs=digits.slice(0,-2); h=parseInt(hrs,10); m=parseInt(mins,10);} } if(Number.isNaN(h)||Number.isNaN(m)) return NaN; if(h<0||m<0||m>59) return NaN; return h*60+m; }
+    function minutesToHHMM(totalMinutes){ const mins=((totalMinutes%(24*60))+(24*60))%(24*60); const h=Math.floor(mins/60); const m=mins%60; const z=n=>String(n).padStart(2,"0"); return `${z(h)}:${z(m)}`; }
+    function formatFieldToHHMM(input){ const mins=parseTimeToMinutes(input.value); if(!Number.isNaN(mins)) input.value=minutesToHHMM(mins); }
+    function onBlurFormat(ev){ formatFieldToHHMM(ev.target); clearError(); save(ev.target.id, ev.target.value); }
+    function onEnterNext(ev){ if(ev.key!=='Enter') return; ev.preventDefault(); const order=['mon_start','tue_start','wed_start','thu_start','fri_start','sat_start','name_input','email_input']; const idx=order.indexOf(ev.target.id); formatFieldToHHMM(ev.target); if(idx>=0 && idx<order.length-1) document.getElementById(order[idx+1])?.focus(); else document.getElementById('submit_btn')?.click(); }
+    function onTimeInput(ev){ const el=ev.target; const digits=String(el.value).replace(/\D/g,''); if(digits.length===3||digits.length===4){ const mins=parseTimeToMinutes(digits); if(!Number.isNaN(mins)){ el.value=minutesToHHMM(mins); save(el.id, el.value); const order=['mon_start','tue_start','wed_start','thu_start','fri_start','sat_start','name_input','email_input']; const idx=order.indexOf(el.id); if(idx>=0 && idx<order.length-1) document.getElementById(order[idx+1])?.focus(); else document.getElementById('submit_btn')?.focus(); } } }
+    function getSelectedHours(){ const r=document.querySelector('input[name="rahmenstunden"]:checked'); return r?parseInt(r.value,10):NaN; }
+    function showError(msg){ const el=document.getElementById('error'); el.textContent=msg; }
+    function clearError(){ showError(''); }
+    function save(key,value){ try{ window.localStorage.setItem(key, value??''); }catch{} }
+    function load(key){ try{ const val=window.localStorage.getItem(key); return val===null?null:val; }catch{ return null; } }
+    function formatRecipientName(email){ if(!email) return 'Empfänger'; const local=email.split('@')[0]||''; if(!local) return 'Empfänger'; return local.split(/[.\-_]+/).filter(Boolean).map(p=>p.charAt(0).toUpperCase()+p.slice(1).toLowerCase()).join(' ').trim()||'Empfänger'; }
+    function formatTime(date){ try{ return date.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});}catch{ const h=String(date.getHours()).padStart(2,'0'); const m=String(date.getMinutes()).padStart(2,'0'); return `${h}:${m}`; } }
+    let activeTab='availability';
+    function setActiveTab(tab,{force=false}={}){ if(!tab) return; if(!force && tab===activeTab) return; activeTab=tab; const panels={availability:document.getElementById('tab-availability'),break:document.getElementById('tab-break')}; Object.entries(panels).forEach(([key,panel])=>{ if(!panel) return; const isActive=key===tab; panel.classList.toggle('active',isActive); if(isActive) panel.removeAttribute('aria-hidden'); else panel.setAttribute('aria-hidden','true'); }); document.querySelectorAll('.tab-btn').forEach(btn=>{ const isActive=btn.dataset.tab===tab; btn.classList.toggle('active',isActive); btn.setAttribute('aria-selected',isActive?'true':'false'); }); clearError(); const submitBtn=document.getElementById('submit_btn'); if(submitBtn) submitBtn.textContent=tab==='availability'?'E-Mail erstellen':'Pause melden'; if(typeof save==='function') save('active_tab',tab); }
+    function startOfNextWeekMonday(today=new Date()){ const d=new Date(today.getFullYear(),today.getMonth(),today.getDate()); const dow=d.getDay(); const delta=(8-dow)%7||7; d.setDate(d.getDate()+delta); return d; }
+    function addDays(date,days){ const d=new Date(date); d.setDate(d.getDate()+days); return d; }
+    function fmtDM(d){ const z=n=>String(n).padStart(2,'0'); return `${z(d.getDate())}.${z(d.getMonth()+1)}`; }
+    function fmtDMY(d){ const z=n=>String(n).padStart(2,'0'); return `${z(d.getDate())}.${z(d.getMonth()+1)}.${d.getFullYear()}`; }
+    function composeEmail(){
       clearError();
-      const to = (document.getElementById('email_input')?.value || '').trim();
-      if (!to) { showError('Bitte Empfänger-E-Mail eingeben.'); return; }
-      const recipientName = formatRecipientName(to);
-      const name = (document.getElementById('name_input')?.value||'').trim();
-      if (activeTab === 'break') {
-        const now = new Date();
-        const end = new Date(now.getTime() + 30 * 60 * 1000);
-        const location = (document.getElementById('pause_location')?.value || '').trim();
-        const subject = 'Pause (30 Minuten)';
-        const parts = [ `Sehr geehrte ${recipientName},`, '', 'ich beginne nun meine Pause von 30 Minuten.', `Beginn: ${formatTime(now)}`, `Ende: ${formatTime(end)}` ];
-        if (location) parts.push(`Ort: ${location}`);
-        parts.push('', 'Mit freundlichen Grüßen'); if (name) parts.push(name);
-        const body = parts.join('\n');
-        const mailto = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        window.location.href = mailto; return;
+      const to=(document.getElementById('email_input')?.value||'').trim();
+      if(!to){ showError('Bitte Empfänger-E-Mail eingeben.'); return; }
+      const recipientName=formatRecipientName(to);
+      const name=(document.getElementById('name_input')?.value||'').trim();
+      if(activeTab==='break'){
+        const now=new Date(); const end=new Date(now.getTime()+30*60*1000);
+        const location=(document.getElementById('pause_location')?.value||'').trim();
+        const subject='Pause (30 Minuten)';
+        const parts=[`Sehr geehrte ${recipientName},`,'','ich beginne nun meine Pause von 30 Minuten.',`Beginn: ${formatTime(now)}`,`Ende: ${formatTime(end)}`];
+        if(location) parts.push(`Ort: ${location}`);
+        parts.push('','Mit freundlichen Grüßen'); if(name) parts.push(name);
+        const body=parts.join('\n');
+        const mailto=`mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href=mailto; return;
       }
-      const subject = 'Rahmstunden';
-      const hours = getSelectedHours(); if (Number.isNaN(hours)) { showError('Bitte 14, 15 oder 16 Stunden auswählen.'); return; }
-      const lateDaySelection = document.querySelector('input[name="late_day"]:checked')?.value || null;
-      if (!lateDaySelection) { showError('Bitte wählen Sie den Tag mit Endzeit 18:00 Uhr aus.'); return; }
-      const lateSelection = { Montag: lateDaySelection === 'mon', Mittwoch: lateDaySelection === 'wed' };
-      const dayIds = [ { label: 'Montag', start: 'mon_start' }, { label: 'Dienstag', start: 'tue_start' }, { label: 'Mittwoch', start: 'wed_start' }, { label: 'Donnerstag', start: 'thu_start' }, { label: 'Freitag', start: 'fri_start' }, { label: 'Samstag', start: 'sat_start' } ];
-      const rows = [];
-      for (const d of dayIds) {
-        const el = document.getElementById(d.start);
-        const sm = parseTimeToMinutes(el.value);
-        if (Number.isNaN(sm)) { if (el.value.trim()!==''){ showError(`${d.label}: Bitte gültige Startzeit eingeben (z. B. 730 oder 07:30).`); return; } else { continue; } }
-        const s = minutesToHHMM(sm);
-        const e = lateSelection[d.label] ? '18:00' : minutesToHHMM(sm + hours*60);
-        el.value = s;
-        rows.push({label:d.label, start:s, end:e});
+      const subject='Rahmstunden';
+      const hours=getSelectedHours(); if(Number.isNaN(hours)){ showError('Bitte 14, 15 oder 16 Stunden auswählen.'); return; }
+      const lateDaySelection=document.querySelector('input[name="late_day"]:checked')?.value||null;
+      if(!lateDaySelection){ showError('Bitte wählen Sie den Tag mit Endzeit 18:00 Uhr aus.'); return; }
+      const lateSelection={Montag:lateDaySelection==='mon', Mittwoch:lateDaySelection==='wed'};
+      const dayIds=[{label:'Montag',start:'mon_start'},{label:'Dienstag',start:'tue_start'},{label:'Mittwoch',start:'wed_start'},{label:'Donnerstag',start:'thu_start'},{label:'Freitag',start:'fri_start'},{label:'Samstag',start:'sat_start'}];
+      const rows=[];
+      for(const d of dayIds){
+        const el=document.getElementById(d.start);
+        const sm=parseTimeToMinutes(el.value);
+        if(Number.isNaN(sm)){ if(el.value.trim()!==''){ showError(`${d.label}: Bitte gültige Startzeit eingeben (z. B. 730 oder 07:30).`); return; } else { continue; } }
+        const s=minutesToHHMM(sm);
+        const e=lateSelection[d.label]?'18:00':minutesToHHMM(sm+hours*60);
+        el.value=s;
+        rows.push({label:d.label,start:s,end:e});
       }
-      if (rows.length < 5) { showError('Bitte mindestens fünf Tage zwischen Montag und Samstag eintragen.'); return; }
-      const dayOrder = ['Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
-      const nextMon = startOfNextWeekMonday(new Date());
-      const dates = dayOrder.map((_, idx) => addDays(nextMon, idx));
-      const dayMap = Object.fromEntries(dayOrder.map((label, idx) => [label, dates[idx]]));
-      const filledIndices = rows.map(r => dayOrder.indexOf(r.label)).filter(idx => idx >= 0);
-      const firstIdx = Math.min(...filledIndices);
-      const lastIdx = Math.max(...filledIndices);
-      const rangeStart = fmtDM(dates[firstIdx]);
-      const rangeEnd = fmtDMY(dates[lastIdx]);
-      const bullets = rows.map(r=>`• ${r.label} (${fmtDM(dayMap[r.label])}.): ${r.start} - ${r.end}`);
-      const parts = [ `Sehr geehrte ${recipientName},`, '', `ich würde gern meine Rahmenzeiten für die Woche vom ${rangeStart} bis ${rangeEnd} wie folgt festlegen:`, '', ...bullets, '', 'Bitte legen Sie mir einen Ausdruck der Zeiten als Bestätigung ins Fach.', '', 'Vielen Dank und freundliche Grüße' ];
-      if (name) parts.push(name);
-      const body = parts.join('\n');
-      const mailto = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      window.location.href = mailto;
+      if(rows.length<5){ showError('Bitte mindestens fünf Tage zwischen Montag und Samstag eintragen.'); return; }
+      const dayOrder=['Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
+      const nextMon=startOfNextWeekMonday(new Date());
+      const dates=dayOrder.map((_,idx)=>addDays(nextMon,idx));
+      const dayMap=Object.fromEntries(dayOrder.map((label,idx)=>[label,dates[idx]]));
+      const filledIndices=rows.map(r=>dayOrder.indexOf(r.label)).filter(idx=>idx>=0);
+      const firstIdx=Math.min(...filledIndices); const lastIdx=Math.max(...filledIndices);
+      const rangeStart=fmtDM(dates[firstIdx]); const rangeEnd=fmtDMY(dates[lastIdx]);
+      const bullets=rows.map(r=>`• ${r.label} (${fmtDM(dayMap[r.label])}.): ${r.start} - ${r.end}`);
+      const parts=[`Sehr geehrte ${recipientName},`,'',`ich würde gern meine Rahmenzeiten für die Woche vom ${rangeStart} bis ${rangeEnd} wie folgt festlegen:`,'',...bullets,'','Bitte legen Sie mir einen Ausdruck der Zeiten als Bestätigung ins Fach.','','Vielen Dank und freundliche Grüße'];
+      if(name) parts.push(name);
+      const body=parts.join('\n');
+      const mailto=`mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href=mailto;
     }
-    window.addEventListener('DOMContentLoaded', () => {
-      const ids = ['mon_start','tue_start','wed_start','thu_start','fri_start','sat_start'];
-      ids.forEach(id => { const el = document.getElementById(id); el.addEventListener('blur', onBlurFormat); el.addEventListener('keydown', onEnterNext); el.addEventListener('input', onTimeInput); el.addEventListener('click', (e)=> { if (e.target.value) e.target.select(); }); el.addEventListener('focus', (e)=> { if (e.target.value) e.target.value = ''; }); const v = load(id); if (v) { el.value = v; formatFieldToHHMM(el); } });
-      const storedHours = load('rahmenstunden'); if (storedHours) { const r = document.querySelector(`input[name="rahmenstunden"][value="${storedHours}"]`); if (r) r.checked = true; }
-      document.querySelectorAll('input[name="rahmenstunden"]').forEach(r=>{ r.addEventListener('change', (e)=> save('rahmenstunden', e.target.value)); });
-      const nameEl = document.getElementById('name_input'); if (nameEl) { const saved = load('name_input'); if (saved) nameEl.value = saved; nameEl.addEventListener('input', (e)=> save('name_input', e.target.value)); nameEl.addEventListener('keydown', (ev)=>{ if (ev.key==='Enter'){ ev.preventDefault(); document.getElementById('submit_btn')?.focus(); }}); nameEl.addEventListener('focus', (e)=> { if (e.target.value) { try { e.target.select(); } catch {} } }); }
-      const emailEl = document.getElementById('email_input'); if (emailEl) { const savedE = load('email_input'); if (savedE) emailEl.value = savedE; emailEl.addEventListener('input', (e)=> save('email_input', e.target.value)); emailEl.addEventListener('focus', (e)=> { if (e.target.value) { try { e.target.select(); } catch {} } }); }
-      // Freitextfeld ohne externe Suche
-      const pauseLocationEl = document.getElementById('pause_location'); if (pauseLocationEl) { const storedLoc = load('pause_location'); if (storedLoc) pauseLocationEl.value = storedLoc; pauseLocationEl.addEventListener('input', (e)=> save('pause_location', e.target.value)); }
-      document.querySelectorAll('.tab-btn').forEach((btn) => { btn.addEventListener('click', () => setActiveTab(btn.dataset.tab)); });
-      const storedTab = load('active_tab'); if (storedTab === 'break' || storedTab === 'availability') setActiveTab(storedTab, { force: true }); else setActiveTab('availability', { force: true });
-      const submitBtn = document.getElementById('submit_btn'); if (submitBtn) submitBtn.textContent = activeTab === 'availability' ? 'E-Mail erstellen' : 'Pause melden';
+    window.addEventListener('DOMContentLoaded',()=>{
+      const ids=['mon_start','tue_start','wed_start','thu_start','fri_start','sat_start'];
+      ids.forEach(id=>{
+        const el=document.getElementById(id);
+        el.addEventListener('blur', onBlurFormat);
+        el.addEventListener('keydown', onEnterNext);
+        el.addEventListener('input', onTimeInput);
+        el.addEventListener('click',(e)=>{ if(e.target.value) e.target.select(); });
+        el.addEventListener('focus',(e)=>{ if(e.target.value) e.target.value=''; });
+        const v=load(id); if(v){ el.value=v; formatFieldToHHMM(el); }
+      });
+      const storedHours=load('rahmenstunden');
+      if(storedHours){
+        const r=document.querySelector(`input[name="rahmenstunden"][value="${storedHours}"]`);
+        if(r) r.checked=true;
+      }
+      document.querySelectorAll('input[name="rahmenstunden"]').forEach(r=>{
+        r.addEventListener('change',(e)=> save('rahmenstunden', e.target.value));
+      });
+      const lateDayRadios=document.querySelectorAll('input[name="late_day"]');
+      const storedLateDay=load('late_day');
+      if(storedLateDay==='mon' || storedLateDay==='wed'){
+        const el=document.getElementById(storedLateDay==='mon' ? 'late_mon' : 'late_wed');
+        if(el) el.checked=true;
+      }
+      lateDayRadios.forEach(radio=>{
+        radio.addEventListener('change',(e)=> save('late_day', e.target.value));
+      });
+      const nameEl=document.getElementById('name_input');
+      if(nameEl){
+        const saved=load('name_input'); if(saved) nameEl.value=saved;
+        nameEl.addEventListener('input',(e)=> save('name_input', e.target.value));
+        nameEl.addEventListener('keydown',(ev)=>{ if(ev.key==='Enter'){ ev.preventDefault(); document.getElementById('submit_btn')?.focus(); }});
+        nameEl.addEventListener('focus',(e)=>{ if(e.target.value){ try{ e.target.select(); }catch{} }});
+      }
+      const emailEl=document.getElementById('email_input');
+      if(emailEl){
+        const savedE=load('email_input'); if(savedE) emailEl.value=savedE;
+        emailEl.addEventListener('input',(e)=> save('email_input', e.target.value));
+        emailEl.addEventListener('focus',(e)=>{ if(e.target.value){ try{ e.target.select(); }catch{} }});
+      }
+      const pauseLocationEl=document.getElementById('pause_location');
+      if(pauseLocationEl){
+        const storedLoc=load('pause_location'); if(storedLoc) pauseLocationEl.value=storedLoc;
+        pauseLocationEl.addEventListener('input',(e)=> save('pause_location', e.target.value));
+      }
+      document.querySelectorAll('.tab-btn').forEach((btn)=>{ btn.addEventListener('click',()=> setActiveTab(btn.dataset.tab)); });
+      const storedTab=load('active_tab'); if(storedTab==='break'||storedTab==='availability') setActiveTab(storedTab,{force:true}); else setActiveTab('availability',{force:true});
+      const submitBtn=document.getElementById('submit_btn'); if(submitBtn) submitBtn.textContent=activeTab==='availability'?'E-Mail erstellen':'Pause melden';
     });
   </script>
   </head>
@@ -180,7 +165,7 @@
           <input type="text" id="name_input" name="name" autocomplete="name" autocapitalize="words" />
         </div>
         <div class="row contact-row">
-          <label for="email_input">E‑Mail</label>
+          <label for="email_input">E-Mail</label>
           <input type="email" id="email_input" name="email" autocomplete="email" />
         </div>
       </fieldset>
@@ -213,7 +198,7 @@
       </div>
       <div class="tab-panel" id="tab-break" role="tabpanel" aria-hidden="true">
         <fieldset>
-          <p class="hint-text">Melde eine 30‑minütige Pause (Beginn ab jetzt). Ort ist ein Freitextfeld ohne Suche.</p>
+          <p class="hint-text">Melde eine 30-minütige Pause (Beginn ab jetzt). Ort ist ein Freitextfeld ohne Suche.</p>
           <div class="row contact-row">
             <label for="pause_location">Ort der Pause</label>
             <input type="text" id="pause_location" name="pause_location" placeholder="Ort (optional)" autocomplete="off" />
@@ -221,22 +206,22 @@
         </fieldset>
       </div>
       <div id="error" class="error" role="alert" aria-live="polite"></div>
-      <button id="submit_btn" type="button" onclick="composeEmail()">E‑Mail erstellen</button>
+      <button id="submit_btn" type="button" onclick="composeEmail()">E-Mail erstellen</button>
       <p class="ds-hint">Es werden keine Cookies gesetzt. Eingaben werden nur lokal im Browser (localStorage) gespeichert. Es werden keine externen Verbindungen aufgebaut.</p>
       <p class="ds-hint"><a href="#datenschutz" style="color:inherit">Datenschutz</a> · <a href="#impressum" style="color:inherit">Impressum</a></p>
       <section id="datenschutz" class="ds-hint" style="text-align:left; margin-top:24px">
         <h3 style="margin:0 0 8px 0; color:#bfc6d4">Datenschutz (Kurzfassung)</h3>
         <ul style="margin:0 0 8px 18px; padding:0">
-          <li>Hosting: GitHub Pages. Serverprotokolle enthalten u. a. IP‑Adresse zur Sicherstellung des Betriebs.</li>
+          <li>Hosting: GitHub Pages. Serverprotokolle enthalten u. a. IP-Adresse zur Sicherstellung des Betriebs.</li>
           <li>Keine Cookies dieser Seite. Nur lokale Speicherung per localStorage für Ihre Eingaben.</li>
           <li>Keine externen Anfragen von dieser Seite.</li>
           <li>Rechtsgrundlagen: Art. 6 Abs. 1 lit. f DSGVO (Hosting, Sicherheit) und lit. b (bereitgestellte Funktionen auf Abruf).</li>
-          <li>Keine Weitergabe an Dritte außer technisch erforderlichen Hosting‑Diensten.</li>
+          <li>Keine Weitergabe an Dritte außer technisch erforderlichen Hosting-Diensten.</li>
         </ul>
       </section>
       <section id="impressum" class="ds-hint" style="text-align:left; margin-top:16px">
         <h3 style="margin:0 0 8px 0; color:#bfc6d4">Impressum</h3>
-        <p style="margin:0">Für rein private, nicht‑kommerzielle Nutzung ist kein Impressum erforderlich.</p>
+        <p style="margin:0">Für rein private, nicht-kommerzielle Nutzung ist kein Impressum erforderlich.</p>
       </section>
     </div>
   </body>
